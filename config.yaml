@@ -346,3 +346,187 @@ business_rules:
     min_credit_score: 600
     max_debt_to_income: 0.4
     min_employment_length: 2
+# Database Configuration
+database:
+  type: "sqlite"
+  path: "data/credit_data.db"
+  backup_enabled: true
+  backup_interval: "daily"
+
+# Model Configuration
+model:
+  default_algorithm: "random_forest"
+  algorithms:
+    - "logistic_regression"
+    - "random_forest"
+    - "gradient_boosting"
+    - "neural_network"
+
+  hyperparameters:
+    random_forest:
+      n_estimators: 100
+      max_depth: 10
+      min_samples_split: 5
+      min_samples_leaf: 2
+
+    gradient_boosting:
+      n_estimators: 100
+      learning_rate: 0.1
+      max_depth: 6
+
+    logistic_regression:
+      C: 1.0
+      max_iter: 1000
+      solver: "liblinear"
+
+# Feature Engineering
+features:
+  numerical_features:
+    - "age"
+    - "income"
+    - "debt_to_income_ratio"
+    - "credit_score"
+    - "employment_length"
+    - "loan_amount"
+    - "interest_rate"
+
+  categorical_features:
+    - "employment_status"
+    - "home_ownership"
+    - "loan_purpose"
+    - "education_level"
+    - "marital_status"
+
+  derived_features:
+    - "income_to_loan_ratio"
+    - "credit_utilization"
+    - "payment_history_score"
+
+# Risk Assessment
+risk:
+  thresholds:
+    low_risk: 0.2
+    medium_risk: 0.5
+    high_risk: 0.8
+
+  score_ranges:
+    excellent: [800, 850]
+    very_good: [740, 799]
+    good: [670, 739]
+    fair: [580, 669]
+    poor: [300, 579]
+
+# Customer Segmentation
+segmentation:
+  methods:
+    - "kmeans"
+    - "hierarchical"
+    - "dbscan"
+
+  features_for_segmentation:
+    - "credit_score"
+    - "income"
+    - "debt_to_income_ratio"
+    - "age"
+    - "employment_length"
+
+  n_clusters: 5
+
+# Compliance & Regulatory
+compliance:
+  regulations:
+    - "GDPR"
+    - "CCPA"
+    - "Fair Credit Reporting Act"
+    - "Equal Credit Opportunity Act"
+
+  audit_frequency: "monthly"
+  report_retention_days: 2555  # 7 years
+
+  fairness_metrics:
+    - "demographic_parity"
+    - "equalized_odds"
+    - "calibration"
+
+# Data Processing
+data:
+  max_file_size_mb: 100
+  supported_formats: ["csv", "xlsx", "json"]
+  missing_value_threshold: 0.3
+  outlier_detection_method: "iqr"
+
+  preprocessing:
+    scaling_method: "standard"
+    encoding_method: "one_hot"
+    handle_missing: "median_mode"
+
+# UI Configuration
+ui:
+  theme: "light"
+  primary_color: "#1f77b4"
+  background_color: "#ffffff"
+  sidebar_color: "#f0f2f6"
+
+  charts:
+    default_height: 400
+    color_palette: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
+
+# API Configuration
+api:
+  enabled: true
+  rate_limit: 1000  # requests per hour
+  authentication: "api_key"
+  cors_enabled: true
+
+# Monitoring & Alerts
+monitoring:
+  enabled: true
+  metrics_retention_days: 90
+
+  alerts:
+    high_default_rate_threshold: 0.05
+    model_performance_threshold: 0.85
+    data_drift_threshold: 0.1
+
+  notifications:
+    email_enabled: true
+    slack_enabled: false
+
+# Security
+security:
+  encryption_enabled: true
+  session_timeout_minutes: 30
+  max_login_attempts: 5
+  password_policy:
+    min_length: 8
+    require_uppercase: true
+    require_lowercase: true
+    require_numbers: true
+    require_special_chars: true
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: "logs/app.log"
+  max_file_size_mb: 10
+  backup_count: 5
+
+  loggers:
+    - "app"
+    - "model"
+    - "data"
+    - "api"
+    - "security"
+
+# Performance
+performance:
+  cache_enabled: true
+  cache_ttl_seconds: 3600
+  max_concurrent_users: 100
+  request_timeout_seconds: 30
+
+  optimization:
+    lazy_loading: true
+    compression_enabled: true
+    minify_assets: true

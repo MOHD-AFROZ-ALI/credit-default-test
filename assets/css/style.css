@@ -1,0 +1,844 @@
+/* 
+Credit Default Prediction System - Professional CSS Styling
+Modern, responsive design with Streamlit-specific customizations
+*/
+
+/* ========================================
+   ROOT VARIABLES & COLOR SCHEME
+======================================== */
+:root {
+    /* Primary Color Palette */
+    --primary-blue: #1f77b4;
+    --primary-blue-dark: #1a5f8a;
+    --primary-blue-light: #4a9eff;
+    --secondary-orange: #ff7f0e;
+    --secondary-green: #2ca02c;
+    --secondary-red: #d62728;
+
+    /* Neutral Colors */
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #6c757d;
+    --charcoal: #343a40;
+    --black: #000000;
+
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-accent: #e3f2fd;
+    --bg-dark: #1e1e1e;
+
+    /* Text Colors */
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-muted: #adb5bd;
+    --text-white: #ffffff;
+
+    /* Status Colors */
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+
+    /* Shadows */
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+    /* Border Radius */
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 3rem;
+
+    /* Typography */
+    --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-mono: 'Courier New', Courier, monospace;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-xxl: 1.5rem;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+}
+
+/* ========================================
+   GLOBAL STYLES
+======================================== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================
+   STREAMLIT MAIN CONTAINER
+======================================== */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 1200px;
+}
+
+/* Remove default Streamlit padding */
+.main > div {
+    padding-top: 0;
+}
+
+/* ========================================
+   HEADER & TITLE STYLING
+======================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-primary);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-blue-dark);
+    border-bottom: 2px solid var(--primary-blue-light);
+    padding-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-xl);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--charcoal);
+    margin-top: var(--spacing-lg);
+}
+
+/* Streamlit title styling */
+.main h1 {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========================================
+   SIDEBAR STYLING
+======================================== */
+.css-1d391kg {
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--medium-gray);
+}
+
+.sidebar .sidebar-content {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-lg);
+}
+
+/* Sidebar title */
+.sidebar h1, .sidebar h2, .sidebar h3 {
+    color: var(--primary-blue);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Sidebar widgets */
+.sidebar .stSelectbox > div > div {
+    background-color: var(--white);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius-md);
+}
+
+.sidebar .stButton > button {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    transition: var(--transition-normal);
+    width: 100%;
+}
+
+.sidebar .stButton > button:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   METRIC CARDS STYLING
+======================================== */
+[data-testid="metric-container"] {
+    background-color: var(--white);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    margin-bottom: var(--spacing-md);
+}
+
+[data-testid="metric-container"]:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+[data-testid="metric-container"] > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Metric value styling */
+[data-testid="metric-container"] [data-testid="metric-value"] {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Metric label styling */
+[data-testid="metric-container"] [data-testid="metric-label"] {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Metric delta styling */
+[data-testid="metric-container"] [data-testid="metric-delta"] {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    margin-top: var(--spacing-xs);
+}
+
+/* ========================================
+   BUTTON STYLING
+======================================== */
+.stButton > button {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Primary button variant */
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, var(--secondary-green), #4caf50);
+    font-size: var(--font-size-lg);
+    padding: var(--spacing-md) var(--spacing-xl);
+}
+
+.stButton > button[kind="primary"]:hover {
+    background: linear-gradient(135deg, #1e7e34, var(--secondary-green));
+}
+
+/* Secondary button variant */
+.stButton > button[kind="secondary"] {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.stButton > button[kind="secondary"]:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+/* ========================================
+   INPUT WIDGETS STYLING
+======================================== */
+.stSelectbox > div > div,
+.stMultiSelect > div > div,
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stNumberInput > div > div > input {
+    border: 2px solid var(--medium-gray);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    transition: var(--transition-fast);
+    background-color: var(--white);
+}
+
+.stSelectbox > div > div:focus-within,
+.stMultiSelect > div > div:focus-within,
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus,
+.stNumberInput > div > div > input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(31, 119, 180, 0.1);
+    outline: none;
+}
+
+/* File uploader styling */
+.stFileUploader > div {
+    border: 2px dashed var(--medium-gray);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    background-color: var(--bg-secondary);
+    transition: var(--transition-normal);
+}
+
+.stFileUploader > div:hover {
+    border-color: var(--primary-blue);
+    background-color: var(--bg-accent);
+}
+
+/* Slider styling */
+.stSlider > div > div > div {
+    background-color: var(--primary-blue);
+}
+
+.stSlider > div > div > div > div {
+    background-color: var(--primary-blue-dark);
+}
+
+/* ========================================
+   DATAFRAME & TABLE STYLING
+======================================== */
+.dataframe {
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin: var(--spacing-md) 0;
+}
+
+.dataframe thead th {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-weight: 600;
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 2px solid var(--primary-blue-dark);
+}
+
+.dataframe tbody td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--medium-gray);
+    transition: var(--transition-fast);
+}
+
+.dataframe tbody tr:hover {
+    background-color: var(--bg-secondary);
+}
+
+.dataframe tbody tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+/* Streamlit dataframe styling */
+[data-testid="stDataFrame"] {
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   CHART & VISUALIZATION STYLING
+======================================== */
+.js-plotly-plot {
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin: var(--spacing-md) 0;
+    background-color: var(--white);
+}
+
+/* Chart container */
+.stPlotlyChart {
+    background-color: var(--white);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    margin: var(--spacing-md) 0;
+}
+
+/* ========================================
+   ALERT & MESSAGE STYLING
+======================================== */
+.stAlert {
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    border-left: 4px solid;
+    font-weight: 500;
+}
+
+/* Success alerts */
+.stAlert[data-baseweb="notification"][kind="success"] {
+    background-color: #d4edda;
+    border-left-color: var(--success);
+    color: #155724;
+}
+
+/* Warning alerts */
+.stAlert[data-baseweb="notification"][kind="warning"] {
+    background-color: #fff3cd;
+    border-left-color: var(--warning);
+    color: #856404;
+}
+
+/* Error alerts */
+.stAlert[data-baseweb="notification"][kind="error"] {
+    background-color: #f8d7da;
+    border-left-color: var(--danger);
+    color: #721c24;
+}
+
+/* Info alerts */
+.stAlert[data-baseweb="notification"][kind="info"] {
+    background-color: #d1ecf1;
+    border-left-color: var(--info);
+    color: #0c5460;
+}
+
+/* ========================================
+   EXPANDER STYLING
+======================================== */
+.streamlit-expanderHeader {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    font-weight: 600;
+    color: var(--primary-blue);
+    transition: var(--transition-normal);
+}
+
+.streamlit-expanderHeader:hover {
+    background-color: var(--bg-accent);
+    border-color: var(--primary-blue);
+}
+
+.streamlit-expanderContent {
+    border: 1px solid var(--medium-gray);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    padding: var(--spacing-lg);
+    background-color: var(--white);
+}
+
+/* ========================================
+   PROGRESS BAR STYLING
+======================================== */
+.stProgress > div > div > div {
+    background-color: var(--primary-blue);
+    border-radius: var(--border-radius-sm);
+}
+
+.stProgress > div > div {
+    background-color: var(--medium-gray);
+    border-radius: var(--border-radius-sm);
+}
+
+/* ========================================
+   TABS STYLING
+======================================== */
+.stTabs [data-baseweb="tab-list"] {
+    gap: var(--spacing-sm);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm);
+}
+
+.stTabs [data-baseweb="tab"] {
+    background-color: transparent;
+    border-radius: var(--border-radius-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: var(--spacing-sm) var(--spacing-md);
+    transition: var(--transition-fast);
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background-color: var(--white);
+    color: var(--primary-blue);
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   SPINNER & LOADING STYLING
+======================================== */
+.stSpinner > div {
+    border-color: var(--primary-blue);
+}
+
+/* ========================================
+   FOOTER STYLING
+======================================== */
+.footer {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--medium-gray);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.footer p {
+    margin: var(--spacing-xs) 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+@media (max-width: 768px) {
+    .main .block-container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    [data-testid="metric-container"] {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .stButton > button {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .main .block-container {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+======================================== */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    color: var(--primary-blue);
+}
+
+.text-secondary {
+    color: var(--text-secondary);
+}
+
+.text-success {
+    color: var(--success);
+}
+
+.text-warning {
+    color: var(--warning);
+}
+
+.text-danger {
+    color: var(--danger);
+}
+
+.bg-primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+.bg-light {
+    background-color: var(--light-gray);
+}
+
+.rounded {
+    border-radius: var(--border-radius-md);
+}
+
+.shadow {
+    box-shadow: var(--shadow-md);
+}
+
+.shadow-sm {
+    box-shadow: var(--shadow-sm);
+}
+
+.shadow-lg {
+    box-shadow: var(--shadow-lg);
+}
+
+.mb-1 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.mb-2 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-3 {
+    margin-bottom: var(--spacing-md);
+}
+
+.mb-4 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.mt-1 {
+    margin-top: var(--spacing-xs);
+}
+
+.mt-2 {
+    margin-top: var(--spacing-sm);
+}
+
+.mt-3 {
+    margin-top: var(--spacing-md);
+}
+
+.mt-4 {
+    margin-top: var(--spacing-lg);
+}
+
+.p-1 {
+    padding: var(--spacing-xs);
+}
+
+.p-2 {
+    padding: var(--spacing-sm);
+}
+
+.p-3 {
+    padding: var(--spacing-md);
+}
+
+.p-4 {
+    padding: var(--spacing-lg);
+}
+
+/* ========================================
+   CUSTOM COMPONENTS
+======================================== */
+.metric-card {
+    background: linear-gradient(135deg, var(--white), var(--light-gray));
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    margin-bottom: var(--spacing-md);
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.metric-card .metric-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-xs);
+}
+
+.metric-card .metric-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.success {
+    background-color: var(--success);
+    color: var(--white);
+}
+
+.status-badge.warning {
+    background-color: var(--warning);
+    color: var(--charcoal);
+}
+
+.status-badge.danger {
+    background-color: var(--danger);
+    color: var(--white);
+}
+
+.status-badge.info {
+    background-color: var(--info);
+    color: var(--white);
+}
+
+/* ========================================
+   DARK MODE SUPPORT
+======================================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --bg-accent: #1e3a5f;
+        --text-primary: #ffffff;
+        --text-secondary: #b0b0b0;
+        --text-muted: #808080;
+        --medium-gray: #404040;
+        --light-gray: #2d2d2d;
+    }
+
+    .metric-card {
+        background: linear-gradient(135deg, var(--bg-secondary), #3a3a3a);
+        border-color: var(--medium-gray);
+    }
+
+    .dataframe thead th {
+        background-color: var(--primary-blue-dark);
+    }
+
+    .dataframe tbody tr:nth-child(even) {
+        background-color: var(--bg-secondary);
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+======================================== */
+@media print {
+    .sidebar {
+        display: none;
+    }
+
+    .stButton {
+        display: none;
+    }
+
+    .main .block-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    h1, h2, h3 {
+        color: var(--black) !important;
+    }
+
+    .metric-card,
+    .dataframe,
+    .stPlotlyChart {
+        box-shadow: none;
+        border: 1px solid var(--medium-gray);
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus indicators for keyboard navigation */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-blue: #0066cc;
+        --primary-blue-dark: #004499;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+    }
+}
