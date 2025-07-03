@@ -1,0 +1,348 @@
+app:
+  name: Credit Default Prediction System
+  version: 1.0.0
+  description: AI-powered credit risk assessment platform
+  author: Credit Risk Analytics Team
+  debug: false
+  environment: production
+  timezone: UTC
+  language: en
+  contact_email: support@creditrisk.com
+  documentation_url: https://github.com/MOHD-AFROZ-ALI/credit-default-test
+  max_concurrent_users: 100
+  session_timeout: 3600
+  auto_save_interval: 300
+model:
+  default_model: random_forest
+  available_models:
+  - random_forest
+  - gradient_boosting
+  - logistic_regression
+  - neural_network
+  - ensemble
+  model_path: models/
+  model_files:
+    random_forest: rf_credit_model.pkl
+    gradient_boosting: gb_credit_model.pkl
+    logistic_regression: lr_credit_model.pkl
+    neural_network: nn_credit_model.pkl
+    ensemble: ensemble_credit_model.pkl
+  scaler_path: models/scalers/
+  encoder_path: models/encoders/
+  feature_importance_path: models/feature_importance/
+  threshold:
+    default: 0.5
+    conservative: 0.3
+    aggressive: 0.7
+    custom_range:
+    - 0.1
+    - 0.9
+  prediction_confidence:
+    high: 0.8
+    medium: 0.6
+    low: 0.4
+  model_performance:
+    min_accuracy: 0.85
+    min_precision: 0.8
+    min_recall: 0.75
+    min_f1_score: 0.77
+    max_false_positive_rate: 0.15
+  retraining:
+    auto_retrain: true
+    retrain_threshold: 0.05
+    retrain_schedule: weekly
+    min_new_samples: 1000
+data:
+  upload_path: data/uploads/
+  processed_path: data/processed/
+  sample_data: data/sample_data.csv
+  backup_path: data/backups/
+  export_path: data/exports/
+  temp_path: data/temp/
+  max_file_size: 200
+  allowed_file_types:
+  - .csv
+  - .xlsx
+  - .xls
+  - .json
+  - .parquet
+  encoding: utf-8
+  delimiter: ','
+  decimal: .
+  date_format: '%Y-%m-%d'
+  datetime_format: '%Y-%m-%d %H:%M:%S'
+  chunk_size: 10000
+  validation:
+    required_columns:
+    - customer_id
+    - age
+    - income
+    - credit_score
+    - debt_to_income_ratio
+    - employment_length
+    - loan_amount
+    - loan_purpose
+    optional_columns:
+    - education_level
+    - marital_status
+    - home_ownership
+    - previous_defaults
+    - credit_history_length
+    data_types:
+      customer_id: string
+      age: int
+      income: float
+      credit_score: int
+      debt_to_income_ratio: float
+      employment_length: float
+      loan_amount: float
+      loan_purpose: string
+    value_ranges:
+      age:
+      - 18
+      - 100
+      income:
+      - 0
+      - 1000000
+      credit_score:
+      - 300
+      - 850
+      debt_to_income_ratio:
+      - 0
+      - 1
+      employment_length:
+      - 0
+      - 50
+      loan_amount:
+      - 1000
+      - 500000
+  preprocessing:
+    handle_missing: median
+    outlier_method: iqr
+    scaling_method: standard
+    encoding_method: onehot
+    feature_selection: true
+    feature_selection_method: mutual_info
+    max_features: 50
+ui:
+  theme: light
+  color_scheme:
+    primary: '#1f77b4'
+    secondary: '#ff7f0e'
+    success: '#28a745'
+    warning: '#ffc107'
+    danger: '#dc3545'
+    info: '#17a2b8'
+    light: '#f8f9fa'
+    dark: '#343a40'
+  layout:
+    sidebar_width: 300
+    main_content_padding: 20
+    chart_height: 400
+    table_height: 500
+    items_per_page: 50
+    max_columns_display: 10
+  components:
+    show_advanced_options: true
+    show_debug_info: false
+    enable_tooltips: true
+    enable_animations: true
+    auto_refresh: false
+    refresh_interval: 30
+  charts:
+    default_chart_type: plotly
+    color_palette: viridis
+    show_grid: true
+    show_legend: true
+    interactive: true
+    export_formats:
+    - png
+    - pdf
+    - svg
+    - html
+  tables:
+    sortable: true
+    filterable: true
+    searchable: true
+    paginated: true
+    exportable: true
+    row_selection: true
+  forms:
+    validation_on_change: true
+    show_validation_messages: true
+    auto_save_drafts: true
+    confirmation_dialogs: true
+security:
+  authentication:
+    enabled: false
+    method: oauth
+    session_encryption: true
+    password_policy:
+      min_length: 8
+      require_uppercase: true
+      require_lowercase: true
+      require_numbers: true
+      require_special_chars: true
+  authorization:
+    role_based_access: false
+    roles:
+    - admin
+    - analyst
+    - viewer
+    permissions:
+      admin:
+      - read
+      - write
+      - delete
+      - configure
+      analyst:
+      - read
+      - write
+      - predict
+      viewer:
+      - read
+      - view_reports
+  data_protection:
+    encrypt_sensitive_data: true
+    mask_personal_info: true
+    audit_trail: true
+    data_retention_days: 365
+    anonymize_exports: true
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file_path: logs/
+  file_name: credit_app.log
+  max_file_size: 10
+  backup_count: 5
+  log_rotation: daily
+  log_categories:
+    app: true
+    model: true
+    data: true
+    user_actions: true
+    errors: true
+    performance: true
+performance:
+  caching:
+    enabled: true
+    cache_type: memory
+    cache_ttl: 3600
+    max_cache_size: 100
+    cache_predictions: true
+    cache_data_processing: true
+    cache_charts: true
+  optimization:
+    lazy_loading: true
+    batch_processing: true
+    parallel_processing: true
+    max_workers: 4
+    memory_limit: 2048
+    timeout_seconds: 300
+  monitoring:
+    track_response_times: true
+    track_memory_usage: true
+    track_cpu_usage: true
+    alert_thresholds:
+      response_time: 5.0
+      memory_usage: 80
+      cpu_usage: 80
+notifications:
+  email:
+    enabled: false
+    smtp_server: smtp.gmail.com
+    smtp_port: 587
+    use_tls: true
+    sender_email: noreply@creditrisk.com
+    admin_emails:
+    - admin@creditrisk.com
+  alerts:
+    model_performance_degradation: true
+    high_risk_predictions: true
+    system_errors: true
+    data_quality_issues: true
+    security_events: true
+integrations:
+  database:
+    enabled: false
+    type: postgresql
+    host: localhost
+    port: 5432
+    database: credit_risk_db
+    connection_pool_size: 10
+    connection_timeout: 30
+  apis:
+    credit_bureau:
+      enabled: false
+      endpoint: https://api.creditbureau.com
+      timeout: 30
+      retry_attempts: 3
+    fraud_detection:
+      enabled: false
+      endpoint: https://api.frauddetection.com
+      timeout: 15
+      retry_attempts: 2
+  cloud_storage:
+    enabled: false
+    provider: aws_s3
+    bucket_name: credit-risk-data
+    region: us-east-1
+compliance:
+  regulations:
+    gdpr:
+      enabled: true
+      data_retention_days: 365
+      right_to_be_forgotten: true
+      consent_tracking: true
+    ccpa:
+      enabled: false
+      data_categories:
+      - personal
+      - financial
+      - behavioral
+      opt_out_mechanism: true
+    fair_lending:
+      enabled: true
+      protected_attributes:
+      - race
+      - gender
+      - age
+      - religion
+      bias_monitoring: true
+      disparate_impact_testing: true
+  reporting:
+    generate_compliance_reports: true
+    report_frequency: monthly
+    report_recipients:
+    - compliance@creditrisk.com
+    include_model_explanations: true
+    include_bias_analysis: true
+business_rules:
+  risk_categories:
+    low_risk:
+      threshold: 0.3
+      color: '#28a745'
+      actions:
+      - approve_automatically
+    medium_risk:
+      threshold: 0.7
+      color: '#ffc107'
+      actions:
+      - manual_review
+      - additional_verification
+    high_risk:
+      threshold: 1.0
+      color: '#dc3545'
+      actions:
+      - reject
+      - escalate_to_senior
+  auto_decisions:
+    enabled: true
+    low_risk_auto_approve: true
+    high_risk_auto_reject: false
+    manual_review_threshold: 0.4
+  loan_limits:
+    max_loan_amount: 500000
+    min_credit_score: 600
+    max_debt_to_income: 0.4
+    min_employment_length: 2
