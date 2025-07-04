@@ -11,11 +11,12 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 try:
-    from components.data_loader import DataLoader
-    from components.model_manager import ModelManager
-    from components.feature_engineer import FeatureEngineer
-    from components.risk_calculator import RiskCalculator
-    from components.visualization import VisualizationEngine
+    from src.data.data_loader import UCICreditDefaultLoader
+    from src.models.model_evaluator import ModelEvaluator
+    from src.models.model_trainer import ModelTrainer
+    from src.data.feature_engineering import CreditDefaultFeatureEngineer
+    from src.models.risk_calculator import RiskCalculator
+    from src.visualization.visualizations import  visualization_component
 except ImportError as e:
     st.error(f"Error importing components: {e}")
     st.stop()

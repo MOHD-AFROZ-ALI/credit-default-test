@@ -28,7 +28,7 @@ try:
     from components.sidebar import render_sidebar
     from components.metrics import display_key_metrics
     from src.utils.helpers import load_config, setup_logging, initialize_session_state
-    from src.data.loader import DataLoader
+    from src.data.data_loader import DataLoader
 except ImportError as e:
     st.error(f"Import error: {e}")
     st.info("Please ensure all required modules are installed and paths are correct.")

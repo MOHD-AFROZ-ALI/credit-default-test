@@ -330,14 +330,7 @@ This project is licensed under the MIT License.
 **Built with ❤️ for better credit risk management**
 '''
 
-# Save the complete README
-with open('/home/user/output/credit_default_prediction/README.md', 'w') as f:
-    f.write(readme_content)
 
-print("✅ Created complete README.md")
-
-# Create a project summary file
-summary_content = '''# Credit Default Prediction System - Project Summary
 
 ## 📋 Project Overview
 This is a complete, production-ready credit default prediction system built with modern ML techniques and a user-friendly web interface.
